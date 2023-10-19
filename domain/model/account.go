@@ -6,6 +6,10 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
+func init() {
+	govalidator.SetFieldsRequiredByDefault(true)
+}
+
 type Account struct {
 	Base 								`valid:"required"`
 	OwnerName	string 		`json:"ownerName" gorm:"column:owner_name;type:varchar(255);not null" valid:"notnull"`
@@ -27,6 +31,7 @@ func NewAccount(bank *Bank, number string, ownerName string) (*Account, error) {
 	account := Account {
 		OwnerName: ownerName,
 		Bank: bank,
+		BankID: bank.ID,
 		Number: number,
 	}
 

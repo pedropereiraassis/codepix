@@ -18,13 +18,7 @@ func init() {
 	_, b, _, _ := runtime.Caller(0)
 	basepath := filepath.Dir(b)
 
-	var err error
-
-	if os.Getenv("ENV") == "docker" {
-		err = godotenv.Load(basepath + "/../../.env.docker")
-	} else {
-		err = godotenv.Load(basepath + "/../../.env")
-	}
+	err := godotenv.Load(basepath + "/../../.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env files")
