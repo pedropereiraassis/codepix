@@ -1,0 +1,15 @@
+GET http://localhost:3000/bank-accounts
+
+###
+
+GET http://localhost:3000/bank-accounts/bac1a0a9-3a2d-4db5-ad27-b6d91621e18b
+
+###
+
+POST http://localhost:3000/bank-accounts
+Content-Type: application/json
+
+{
+  "account_number": "1111-1",
+  "owner_name": "John Doe"
+}
