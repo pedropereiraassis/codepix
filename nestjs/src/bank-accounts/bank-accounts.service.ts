@@ -12,16 +12,16 @@ export class BankAccountsService {
   ) {}
 
   // DTO - Data Transfer Object
-  create(createBankAccountDto: CreateBankAccountDto) {
-    return this.bankAccountRepo.save(createBankAccountDto);
+  async create(createBankAccountDto: CreateBankAccountDto) {
+    return await this.bankAccountRepo.save(createBankAccountDto);
   }
 
-  findAll() {
-    return this.bankAccountRepo.find();
+  async findAll() {
+    return await this.bankAccountRepo.find();
   }
 
-  findOne(id: string) {
-    return this.bankAccountRepo.findOneOrFail({
+  async findOne(id: string) {
+    return await this.bankAccountRepo.findOneOrFail({
       where: { id },
     });
   }
