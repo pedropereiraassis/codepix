@@ -7,6 +7,9 @@ services:
       - 3000:3000
     volumes:
       - .:/home/node/app
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: root
   
   db:
     image: postgres:14.5

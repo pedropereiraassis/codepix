@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,10 +12,10 @@ import { PixKeysModule } from './pix-keys/pix-keys.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'db',
+      host: process.env.POSTGRES_HOST,
       database: 'nest',
       username: 'postgres',
-      password: 'root',
+      password: process.env.POSTGRES_PASSWORD,
       entities: [BankAccount],
       synchronize: true,
     }),
