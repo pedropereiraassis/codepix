@@ -10,10 +10,13 @@ services:
     environment:
       POSTGRES_HOST: db
       POSTGRES_PASSWORD: root
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   
   db:
     image: postgres:14.5
     environment:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: nest
-
+    ports:
+      - "5434:5432"
